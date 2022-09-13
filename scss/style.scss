@@ -1,0 +1,95 @@
+body {}
+
+.wrapper {}
+
+.main {}
+
+.button {
+	display: flex;
+   justify-content: center;
+   align-items: center;
+	width: 300px;
+   margin: 0 0 15px 0;
+   border: none;
+   border-radius: 5px;
+   height: 32px;
+   line-height: 32px;
+   font-size: 14px;
+   font-weight: 500;
+   color: #fff;
+   background-color: #787e89;
+   box-shadow: 0 2px #3e4148;
+}
+
+.button:hover {
+	background-color: #3e4148;
+}
+
+.button:active {
+	background-color: #3e4148 !important;
+}
+
+.button:focus-visible {
+	box-shadow: 0 0 0 3px lightskyblue;
+}
+
+.button:disabled {
+	background-color: #6c87b5;
+	pointer-events: none;
+}
+
+.countries {
+
+	// .countries__container
+
+	&__container {
+		max-width: 1000px;
+		margin: 0 auto;
+		padding: 0 15px;
+	}
+
+	// .countries__block
+
+	&__block{
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		padding: 20px 0;
+	}
+
+	// .countries__country-entering
+
+	&__country-entering {
+
+		// .countries__country-entering_button
+
+		&_button {}
+	}
+
+	// .countries__country-receiving
+
+	&__country-receiving {
+
+		// .countries__country-receiving_button
+
+		&_button {}
+	}
+
+	// .countries__country-list
+
+	&__country-list {
+
+		// .countries__country-list_button
+
+		&_button {}
+	}
+
+	// .countries__country-delete
+
+	&__country-delete {
+
+		// .countries__country-delete_button
+
+		&_button {}
+	}
+}
