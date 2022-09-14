@@ -59,5 +59,7 @@ buttonDelete.onclick = () => {
 		for (let key in countries) {
 			console.log(key + ': ' + countries[key]);
 		}
+	} else {
+		alert('В базе данных такой страны нет либо уже удалена.')
 	}
 };
