@@ -1,65 +1,63 @@
-let buttonEntering = document.querySelector('.countries__country-entering_button');
-let buttonReeciving = document.querySelector('.countries__country-receiving_button');
-let buttonList = document.querySelector('.countries__country-list_button');
-let buttonDelete = document.querySelector('.countries__country-delete_button');
+let countries = {};
 
 /* -------------------------------------- добавление страны и ее столицы----------------------------------------- */
-buttonEntering.onclick = () => {
-	nameCountry = prompt('Введите название страны');
-	if (nameCountry === '') {
-		alert(`Поле не должно быть пустым!!!`);
-		return;
-	}
-	nameCapital = prompt('Введите название столицы!!!');
-	if (nameCapital === '') {
+function EnteringCountry() {
+	country = prompt('Введите название страны');
+	if (country === '') {
 		alert(`Поле не должно быть пустым!!!`);
 		return;
 	}
 
-	countries = {
-		country: nameCountry,
-		capital: nameCapital
-	};
+	capital = prompt('Введите название столицы!!!');
+	if (capital === '') {
+		alert(`Поле не должно быть пустым!!!`);
+		return;
+	}
+
+	countries[country] = capital;
 	console.log(countries);
-};
+}
+
+let buttonEnteringCountry = document.querySelector('#buttonEnteringCountry');
+buttonEnteringCountry.addEventListener('click', EnteringCountry);
 
 /* -------------------------------------- получение информации о стране---------------------------------------- */
-buttonReeciving.onclick = () => {
-	nameCountry = prompt('Введите название страны');
-	if (nameCountry === '') {
+let buttonReceivingCountry = document.querySelector('#buttonReceivingCountry');
+
+buttonReceivingCountry.addEventListener('click', function () {
+	country = prompt('Введите название страны');
+	if (country === '') {
 		alert(`Поле не должно быть пустым!!!`);
 		return;
 	}
 
-	if (nameCountry === countries.country) {
-		alert('Столица' + ': ' + nameCapital);
-	} else {
-		alert('нет инфо по стране');
-	}
-};
+	let rezult = (countries[country]) ?
+		alert(`Столица: ${country} : ${countries[country]}`) :
+		alert(`В базе данных такая страна отсутствует!!!`);
+});
 
 /*-------------------------------------- перечень всех стран--------------------------------------------------*/
-buttonList.onclick = () => {
+let buttonListCountry = document.querySelector('#buttonListCountry');
+
+buttonListCountry.addEventListener('click', function () {
 	for (let key in countries) {
-		console.log(key + ': ' + countries[key]);
+		console.log(`${key} : ${countries[key]}`);
 	}
-	console.log(countries);
-};
+});
 
 /* -------------------------------------- удаление страны --------------------------------------------------*/
-buttonDelete.onclick = () => {
-	nameCountry = prompt('Введите название страны');
-	if (nameCountry === '') {
+
+let buttonDeleteCountry = document.querySelector('#buttonDeleteCountry');
+
+buttonDeleteCountry.addEventListener('click', function () {
+	country = prompt('Введите название страны');
+	if (country === '') {
 		alert(`Поле не должно быть пустым!!!`);
 		return;
 	}
 
-	if (nameCountry === countries.country) {
-		delete countries.country;
-		for (let key in countries) {
-			console.log(key + ': ' + countries[key]);
-		}
-	} else {
-		alert('В базе данных такой страны нет либо уже удалена.')
-	}
-};
+	let rezult = (countries[country]) ?
+		delete countries[country] :
+		alert('В базе данных такой страны нет либо уже удалена!!!');
+	console.log(countries);
+});
